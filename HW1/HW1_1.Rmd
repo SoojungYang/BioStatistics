@@ -2,12 +2,7 @@
 title: '[HW1] Probability Distribution'
 name: ' 20170380 Soojung Yang '
 date: '2019 9 16 '
-output:
-  html_document:
-    df_print: paged
-  html_notebook: default
-  pdf_document: default
-  word_document: default
+output: rmarkdown::github_document
 ---
 
 The goal of this assignment is to analyze NCBI Breast Cancer dataset by Molecular subtypes. The description for the dataset is given below.   
