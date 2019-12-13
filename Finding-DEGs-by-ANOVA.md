@@ -10,19 +10,19 @@ given distributions.
 #### **DATASET**
 
 **NCBI Build 37 (UCSC hg19)**  
-â€“ Citation: Assembly \[Internet\]. Bethesda (MD): National Library of
-Medicine (US), National Center for Biotechnology Information; 2012 â€“
+?€? Citation: Assembly \[Internet\]. Bethesda (MD): National Library of
+Medicine (US), National Center for Biotechnology Information; 2012 ?€?
 \[cited 2019 09 16\]. Available from:
 <https://www.ncbi.nlm.nih.gov/assembly/>
 
-In addition to previously used â€˜Clinicalâ€™ and â€˜Mutationâ€™ datasets,
-â€˜Expressionâ€™ dataset was newly analyzed in this assessment.
+In addition to previously used ?€˜Clinical?€? and ?€˜Mutation?€? datasets,
+?€˜Expression?€? dataset was newly analyzed in this assessment.
 
 #### **Expression**
 
-â€¢ **sample\_id (column)**  
-â€¢ **Hugo\_Symbol (row)**  
-â€¢ For each sample\_id(patient) and Hugo\_Symbol(gene), â€˜Expressionâ€™
+?€? **sample\_id (column)**  
+?€? **Hugo\_Symbol (row)**  
+?€? For each sample\_id(patient) and Hugo\_Symbol(gene), ?€˜Expression?€?
 dataset gives the extent of expression in number. Higher the number,
 stronger the expression.
 
@@ -54,7 +54,7 @@ Threshold for p value is
 ![p\<0.05](https://latex.codecogs.com/png.latex?p%3C0.05 "p\<0.05") in
 every cases.
 
-> **1. Test whether there is a significant difference in the patientâ€™s
+> **1. Test whether there is a significant difference in the patient?€™s
 > survival time on the stages of breast cancer. For significant changes,
 > plot boxplot to visualize difference.**
 
@@ -62,8 +62,8 @@ We should compare the means among 3 samples with single different factor
 (stage; stage i, ii, iii). First, we are performing one-way ANOVA
 analysis here. Instead of performing t-test for every pairwise
 combinations, ANOVA test compares the variability of total sample and
-the sum of the variability of each sample. ANOVA tests if thereâ€™s
-**â€˜anyâ€™** significant difference among several sample groups.
+the sum of the variability of each sample. ANOVA tests if there?€™s
+**?€˜any?€?** significant difference among several sample groups.
 Hypothesis for ANOVA is given as follows.
 
 **Null Hypothesis**: ![H\_0: \\mu\_i = \\mu\_{ii} =
@@ -114,7 +114,7 @@ print(paste("mean survival time for stage iii patiens: ", ave_iii))
     ## [1] "mean survival time for stage iii patiens:  1096.6511627907"
 
 Directly comparing the means of 3 stages, we can see that the mean
-survival time is decreasing from stage i to stage iii. Letâ€™s see if this
+survival time is decreasing from stage i to stage iii. Let?€™s see if this
 decrease is significant or not.
 
 ``` r
@@ -128,10 +128,10 @@ summary(anova.result)
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-We can see that thereâ€™s a significance difference among stages. Pr(\>F),
+We can see that there?€™s a significance difference among stages. Pr(\>F),
 which is a probability value for the chance which at least one sample
 group is significantly different from others, is large enough to reject
-the null hypothesis. Now letâ€™s check which pairs are significant. Before
+the null hypothesis. Now let?€™s check which pairs are significant. Before
 that, in order to observe how p values have adjusted, unadjusted p
 values were calculated.
 
@@ -208,7 +208,7 @@ p value is a probability value that the given data could occur given the
 null hypothesis. Even though p value is small, smaller than the cut off
 (threshold) value, if we subsequently test multiple times, then this
 small value can result on large number of false positives. This is
-whatâ€™s called multiple testing problem.
+what?€™s called multiple testing problem.
 
 #### **FDR (False Discovery Rate) correction**
 
@@ -307,7 +307,7 @@ length(compare_i_iii.adj[which(compare_i_iii.adj<0.05)])
 ## **Result analysis**
 
 We have found 1 DEG for stage i and ii, and 19 DEGs for stage i and iii.
-Letâ€™s see how the FDR adjustment made the result change. Below figure is
+Let?€™s see how the FDR adjustment made the result change. Below figure is
 a collection of histograms of p values. We can see that (possible) false
 positive values are reduced by applying FDR.
 
@@ -334,7 +334,7 @@ table.
     ## 1         i - ii              1      ZC3H12D
     ## 2        i - iii             19 MIER1, P....
 
-Letâ€™s check if DEG of stage i-ii **ZC3H12D** is also a DEG of stage
+Let?€™s check if DEG of stage i-ii **ZC3H12D** is also a DEG of stage
 i-iii.
 
 ``` r
@@ -347,9 +347,9 @@ DEG of stage i - ii **ZC3H12D** is again a DEG of stage i - iii. This
 might imply that this gene plays an important role throughout every
 stages of cancer.
 
-> **3. Test whether there is a significant difference in the patientsâ€™
-> survival time between different subtypes. Compare â€˜Luminal Aâ€™,
-> â€˜Luminal Bâ€™, â€˜HER2-enrichedâ€™, and â€˜Basal-likeâ€™ (total 4) subtypes.
+> **3. Test whether there is a significant difference in the patients?€?
+> survival time between different subtypes. Compare ?€˜Luminal A?€?,
+> ?€˜Luminal B?€?, ?€˜HER2-enriched?€?, and ?€˜Basal-like?€? (total 4) subtypes.
 > Plot boxplot to visualize their difference.**
 
 We will analyze with sampe procedure as in problem 1.
@@ -409,7 +409,7 @@ posthoc2
 
 Post hoc Tukey HSD analysis also shows the same result. Adjusted p
 values are not small enough to reject the null hypothesis. Survival time
-doesnâ€™t depend on subtypes.
+doesn?€™t depend on subtypes.
 
 During the p value adjustment, individual confidence level has changed.
 to match 0.95 family-wise (simultaneous) confidence level, individual
@@ -465,9 +465,9 @@ The reason why the results are different is that the patient data
 analyzed here is biased on relatively short survival time.
 
 ![Fig. The Kaplan-Meier Survival in IHC Subgroups Over 100
-Months](hw2.png)
+Months](km.png)
 
-Figure above shows us that thereâ€™s almost no difference among subtypes
+Figure above shows us that there?€™s almost no difference among subtypes
 when the analysis time is less than \~40 months. As shown in the
 boxplot, our data is biased around 0\~2000 days (=60 months). This might
 be a reason why there was no significant difference shown in our data.
